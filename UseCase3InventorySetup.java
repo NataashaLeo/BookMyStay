@@ -1,10 +1,21 @@
 import java.util.HashMap;
 
+/**
+ * UseCase3InventorySetup
+ *
+ * Demonstrates centralized room inventory management
+ * using HashMap as a single source of truth.
+ *
+ * @author Roxx
+ * @version 3.1
+ */
+
+// Inventory Class
 class RoomInventory {
 
     private HashMap<String, Integer> inventory;
 
-    // Constructor
+    // Constructor - initialize inventory
     public RoomInventory() {
         inventory = new HashMap<>();
 
@@ -23,33 +34,37 @@ class RoomInventory {
         inventory.put(roomType, count);
     }
 
-    // Display inventory
+    // Display all inventory
     public void displayInventory() {
         System.out.println("=== Room Inventory ===");
 
         for (String roomType : inventory.keySet()) {
-            System.out.println(roomType + " -> Available: " + inventory.get(roomType));
+            System.out.println(roomType + " → Available: " + inventory.get(roomType));
         }
     }
 }
 
+// Main Class (ENTRY POINT)
 public class UseCase3InventorySetup {
 
     public static void main(String[] args) {
 
-        System.out.println("=== Book My Stay App (v3.1) ===\n");
+        System.out.println("====================================");
+        System.out.println(" Book My Stay App - Inventory v3.1");
+        System.out.println("====================================\n");
 
-        // Create inventory
+        // Initialize inventory
         RoomInventory inventory = new RoomInventory();
 
-        // Show initial inventory
+        // Display initial inventory
         inventory.displayInventory();
 
-        // Update example
-        System.out.println("\nUpdating Single Room availability...\n");
+        // Example: update availability
+        System.out.println("\nUpdating availability...\n");
+
         inventory.updateAvailability("Single Room", 4);
 
-        // Show updated inventory
+        // Display updated inventory
         inventory.displayInventory();
 
         System.out.println("\nApplication terminated.");
